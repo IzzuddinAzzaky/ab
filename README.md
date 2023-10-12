@@ -19,6 +19,6 @@ find /home/profaskes/klinik -type d -name "views" | while read -r sumber_folder;
     jam_waktu=$(date +\%H\%M\%S)
     nama_zip="$tujuan_utama/$folder1\_$folder2\_$jam_waktu.zip"
     
-    # Buat file ZIP dari folder sumber
-    zip -r "$nama_zip" "$sumber_folder"
+    # Masuk ke direktori "views" sebelum membuat file ZIP
+    (cd "$sumber_folder" && zip -r "$nama_zip" .)
 done
